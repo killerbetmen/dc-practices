@@ -68,7 +68,7 @@ Get a message and number of views by `message_id`
 ```
 
 ### GET `/users/me`
-Get current user (if you're not authorized you will get HTTP 401 Unauthorized error) 
+Get current user (if you're not authorized you will get HTTP 401 Unauthorized error). 
 
 *Request example:* `https://dc-practices.herokuapp.com/users/me`
 *Response example:*
@@ -78,7 +78,7 @@ Get current user (if you're not authorized you will get HTTP 401 Unauthorized er
 
   
 ### POST `/add_message`
-Method for creating a new message
+Method for creating a new message(can be used if you have a username and password for managing the app).
 
 *Example of usage:* 
 ```
@@ -99,7 +99,7 @@ curl -X 'POST'
 ```
 
 ### PUT `/update_message/{message_id}`
-Update message text by using `message_id`
+Update message text by using `message_id`(can be used if you have a username and password for managing the app).
 
 *Example of usage:* 
 ```
@@ -120,7 +120,7 @@ curl -X 'PUT' \
 ```
 
 ### DELETE `/delete_message/{message_id}`
-Method for deleting messages by `message_id`. If `message_id` doesn't exist in database you will get HTTP 404 NOT FOUND error.
+Method for deleting messages by `message_id`. If `message_id` doesn't exist in database you will get HTTP 404 NOT FOUND error (can be used if you have a username and password for managing the app).
 
 *Request example:* `https://dc-practices.herokuapp.com/delete_message/6` (you will be asked to provide username and password) or using `curl`:
 ```
