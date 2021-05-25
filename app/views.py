@@ -75,7 +75,10 @@ async def create_message(new_message: schemas.PostMessage,
         last_message = db.query(models.Message).order_by(models.Message.MessageID.desc()).first()
 
         new_message = models.Message(**new_message.dict())
-        new_message.MessageID = last_message.MessageID + 1
+        if last_message is None:
+            new_message.MessageID = 1
+        else:
+            new_message.MessageID = last_message.MessageID + 1
         content = new_message.Message.isspace()
         if content is True or new_message.Message == '':
             raise HTTPException(
